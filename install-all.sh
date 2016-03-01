@@ -16,8 +16,8 @@ die() {
 [ -e "~/.emacs" ] && die "~/.emacs already exists."
 
 # clone vimrc
-git clone git://github.com/iamslash/emacs_robin.git $EMACS_ROBIN_HOME
-ln -s "$EMACS_ROBIN_HOME/.emacs" ~/.emacs
+git clone git://github.com/iamslash/emacs_robin.git $EMACS_ROBIN_HOME || die "git clone failed."
+ln -s "$EMACS_ROBIN_HOME/.emacs" ~/.emacs || die ".emacs symbolic link failed."
 
 #
 echo "emacs_robin is installed."
