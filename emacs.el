@@ -30,10 +30,10 @@
 (setq frame-title-format (list "GNU Emacs " emacs-version "@" system-name " - " '(buffer-file-name "%f" "%b")))
 (setq icon-title-format frame-title-format)
 (which-function-mode 1)                 ; it is better than semantic-stickyfunc-mode
-(if window-system (tool-bar-mode 0))
+(if (functionp 'tool-bar-mode) (tool-bar-mode 0))
+(if (functionp 'scroll-bar-mode) (scroll-bar-mode 0))
 (auto-compression-mode 1)               ; 
 (setq-default indent-tabs-mode nil)     ; 
-(scroll-bar-mode -1)
 ;; https://www.emacswiki.org/emacs/IncrementalSearch
 (define-key isearch-mode-map (kbd "C-y") 'isearch-yank-kill)
 ;;;; windows key
