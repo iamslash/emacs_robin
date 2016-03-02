@@ -376,5 +376,5 @@
 ;;; Platform Dependent
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(when macosxp
-  (load "~/.emacs_robin/emacs-mac"))
+;;(when macosxp
+;;  (load "~/.emacs_robin/emacs-mac"))
