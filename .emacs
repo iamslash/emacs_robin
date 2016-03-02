@@ -1,1 +1,1 @@
-(load ~/.emacs_robin/emacs.el)
+(load "~/.emacs_robin/emacs.el")
