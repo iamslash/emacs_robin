@@ -43,3 +43,4 @@
 
 ;;; mdfind is spotlight command
 (setq locate-command "mdfind")
+
