@@ -205,7 +205,7 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; Package install
+;;; package install
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; M-x list-packages
 (require 'package)
@@ -214,15 +214,11 @@
                         ("marmalade" . "http://marmalade-repo.org/packages/")
                         ("melpa"     . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
-
 ;; install wanted packages.
-(let ((wanted '(gtags etags-select deft ace-jump-mode find-file-in-repository
-                      smex iedit flycheck go-mode go-eldoc key-chord
-                      highlight-symbol wgrep hideshowvis ido-ubiquitous
-                      flx-ido projectile auto-complete flymake-cursor)))
- (dolist (package wanted)
-   (unless (require package nil t)
-     (package-install package))))
+(let ((wanted '(gtags solarized-theme)))
+  (dolist (package wanted)
+    (unless (require package nil t)
+      (package-install package))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; dired-x

@@ -18,9 +18,9 @@
               '(font . "DejaVu Sans Mono-15")))
 
 
-;;; solarized-light 
-;; (when window-system
-;;  (load-theme 'solarized-light t))
+;; solarized-light 
+(when window-system
+  (load-theme 'solarized-light t))
 
 ;; ;; get env from .bash_profile
 ;; ;; (setenv "PATH" (concat "~/opt/bin:"
