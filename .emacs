@@ -188,7 +188,7 @@
               (local-set-key (kbd "RET") 'newline-and-indent)
               (setq indent-tabs-mode nil))))
 
-;;;;;;;;; gud 설정
+;;;;;;;;; gud 
 (setq gdb-many-windows t)               ; 
 (global-set-key [f9] 'gud-break)
 (global-set-key [(shift f9)] 'gdb-delete-breakpoint)   ; like visual studio 
@@ -360,8 +360,8 @@
 
   (hs-minor-mode 1)
   (hide-ifdef-mode 1)
-  (setq hide-ifdef-lines t)             ; #if 등까지 가려버리자
-  (setq hide-ifdef-read-only t))         ; hide-ifdef-mode 에선 readonly 로 사용해야지
+  (setq hide-ifdef-lines t)             ; #if 
+  (setq hide-ifdef-read-only t))         ; readonly in case of hide-ifdef-mode
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
