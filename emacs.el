@@ -215,7 +215,7 @@
                         ("melpa"     . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 ;; install wanted packages.
-(let ((wanted '(gtags solarized-theme)))
+(let ((wanted '(gtags solarized-theme auto-complete)))
   (dolist (package wanted)
     (unless (require package nil t)
       (package-install package))))
