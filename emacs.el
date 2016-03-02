@@ -203,6 +203,9 @@
 (global-set-key (kbd "C-x C-a C-w") 'gud-watch)
 
 
+;;;;;;;; move cursor multiple lines
+(global-set-key [(M-down)] '(lambda () (interactive) (next-line 5)))
+(global-set-key [(M-up)] '(lambda () (interactive) (previous-line 5)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; package install
