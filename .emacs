@@ -4,24 +4,20 @@
 ;; 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; config for platform, machine 
+;;;; global
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;; defconst for platform, machine 
 (defconst win32p (eq system-type 'windows-nt) "true if window")
 (defconst linuxp (eq system-type (or 'gnu/linux 'berkeley-unix)) "true if linux")
 (defconst macosxp (eq system-type 'darwin))
 (defconst homep (string-equal system-name "SALSHHOMEONE") "true if home")
 (defconst officep (string-equal system-name "DO-PC") "true if office")
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; global settings
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;  
 (global-font-lock-mode 1)               ; syntanx highlight
 (transient-mark-mode 1)                 ; marking highlight
 (show-paren-mode t)                     ; 
-(if (functionp 'global-hi-lock-mode)    ; C-x w h 등으로 특정 단어들을 빛내준다
-    (global-hi-lock-mode 1)
-    (hi-lock-mode 1))
-;;(global-hl-line-mode 1)               ; 현재줄을 빛내준다. 이거 좀 불편해서 뺐다.
 (setq ring-bell-function (lambda () nil)) ; bell 무시
 (line-number-mode 1)                    ; mode line 에 라인수를 표시한다
 (column-number-mode 1)                  ; mode line 에 컬럼을 표시한다(기본이 아니더라)
