@@ -44,3 +44,8 @@
 ;;; mdfind is spotlight command
 (setq locate-command "mdfind")
 
+;; shell on macosx
+(defun run-term ()
+  (interactive)
+  (start-process "Terminal" nil "open" "/Applications/Utilities/Terminal.app"))
+(global-set-key [(f5)] 'run-term)
