@@ -44,8 +44,30 @@
 ;;; mdfind is spotlight command
 (setq locate-command "mdfind")
 
-;; shell on macosx
-(defun run-term ()
-  (interactive)
-  (start-process "Terminal" nil "open" "/Applications/Utilities/Terminal.app"))
-(global-set-key [(f5)] 'run-term)
+;;;; shell on macosx
+;; https://www.emacswiki.org/emacs/MacOSTweaks#toc22
+(defun mac-open-terminal ()
+   (interactive)
+   (let ((dir ""))
+     (cond
+      ((and (local-variable-p 'dired-directory) dired-directory)
+       (setq dir dired-directory))
+      ((stringp (buffer-file-name))
+       (setq dir (file-name-directory (buffer-file-name))))
+      ((stringp default-directory)
+       (setq dir default-directory))
+      )
+     (do-applescript
+      (format "
+ tell application \"Terminal\"
+   activate
+   try
+     do script with command \"cd %s\"
+   on error
+     beep
+   end try
+ end tell" dir))
+     ))
+
+;;;; shortcut
+(global-set-key [(f5)] 'mac-open-terminal)
