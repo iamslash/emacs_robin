@@ -71,3 +71,4 @@
 
 ;;;; shortcut
 (global-set-key [(f5)] 'mac-open-terminal)
+
