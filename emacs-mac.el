@@ -75,5 +75,5 @@
   (start-process "finder" nil "open" "."))
 
 ;;;; shortcut
-(global-set-key [(F5)] 'mac-launch-terminal)
-(global-set-key [(M-F5)] 'mac-launch-finder)
+(global-set-key [(f5)] 'mac-launch-terminal)
+(global-set-key [(M-f5)] 'mac-launch-finder)
