@@ -54,7 +54,7 @@
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C-_") 'text-scale-decrease)
 (global-set-key [(f7)] 'compile)   ; visual studio 
-(global-set-key [(f5)] 'gdb)       ; visual studio 
+;; (global-set-key [(f5)] 'gdb)       ; visual studio 
 (global-set-key [(f4)] 'next-error)   ; useful for M-x grep 
 (global-set-key [(shift f4)] 'previous-error)
 
