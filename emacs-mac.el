@@ -46,7 +46,7 @@
 
 ;;;; shell on macosx
 ;; https://www.emacswiki.org/emacs/MacOSTweaks#toc22
-(defun mac-open-terminal ()
+(defun mac-launch-terminal ()
    (interactive)
    (let ((dir ""))
      (cond
@@ -69,6 +69,11 @@
  end tell" dir))
      ))
 
-;;;; shortcut
-(global-set-key [(f5)] 'mac-open-terminal)
+;; launch finder
+(defun mac-launch-finder ()
+  (interactive)
+  (start-process "finder" nil "open" "."))
 
+;;;; shortcut
+(global-set-key [(F5)] 'mac-launch-terminal)
+(global-set-key [(M-F5)] 'mac-launch-finder)
