@@ -17,3 +17,9 @@ Use curl (for Mac OS X):
 # How to learn emacs script
 
 * [A Guided Tour of Emacs](http://www.gnu.org/software/emacs/tour/)
+
+# Packages
+
+* magit
+* solarized-theme
+* auto-complete
