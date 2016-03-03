@@ -255,7 +255,7 @@
 ;; http://www.emacswiki.org/cgi-bin/wiki/AutoInsertMode
 (require 'autoinsert)
 (auto-insert-mode)
-(setq auto-insert-directory "~/emacs/autoinsert/")
+(setq auto-insert-directory "~/.emacs_robin/autoinsert/")
 (setq auto-insert-query nil)
 (define-auto-insert "\\<Makefile\\'" "autoinsert.makefile")
 (define-auto-insert "\\.py\\'" "autoinsert.py")
