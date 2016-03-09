@@ -218,7 +218,7 @@
                         ("melpa"     . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 ;; install wanted packages.
-(let ((wanted '(gtags solarized-theme auto-complete magit)))
+(let ((wanted '(gtags solarized-theme auto-complete magit js3-mode)))
   (dolist (package wanted)
     (unless (require package nil t)
       (package-install package))))
@@ -390,5 +390,5 @@
 
 (when macosxp
   (load "~/.emacs_robin/emacs-mac"))
-
-
+(when (locate-library "js3-mode")
+  (load "~/.emacs_robin/emacs-js"))
