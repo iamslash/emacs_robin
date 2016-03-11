@@ -1,3 +1,9 @@
+;; install wanted packages.
+(let ((wanted '(exec-path-from-shell)))
+  (dolist (package wanted)
+    (unless (require package nil t)
+      (package-install package))))
+
 ;;; korean key input.
 (setq default-input-method "korean-hangul")
 (define-key global-map (kbd "S-SPC")  'toggle-input-method)
@@ -22,21 +28,25 @@
 (when window-system
   (load-theme 'solarized-light t))
 
-;; ;; get env from .bash_profile
-;; ;; (setenv "PATH" (concat "~/opt/bin:"
-;; ;;                        "/usr/local/bin:"
-;; ;;                        "/usr/local/sbin:"
-;; ;;                        (getenv "PATH")))
-;; ;; (setq exec-path
-;; ;;       (append `(,(expand-file-name "~/opt/bin")
-;; ;;                 "/usr/local/bin"
-;; ;;                 "/usr/local/sbin")
-;; ;;               exec-path))
-;; ;; better choice
-;; ;;; https://github.com/purcell/exec-path-from-shell
-;; (require 'exec-path-from-shell)
-;; (exec-path-from-shell-initialize)
-;; (exec-path-from-shell-copy-env "GOPATH")
+;; get env from .bash_profile
+;;
+;; (setenv "PATH" (concat "~/opt/bin:"
+;;                        "/usr/local/bin:"
+;;                        "/usr/local/sbin:"
+;;                        (getenv "PATH")))
+;; (setq exec-path
+;;       (append `(,(expand-file-name "~/opt/bin")
+;;                 "/usr/local/bin"
+;;                 "/usr/local/sbin")
+;;               exec-path))
+;;
+;; better choice
+;; https://github.com/purcell/exec-path-from-shell
+;;
+(when (locate-library "exec-path-from-shell")
+  (require 'exec-path-from-shell)
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-env "GOPATH"))
 
 ;; for LANG setting
 (set-locale-environment "ko_KR.UTF-8")

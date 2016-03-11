@@ -223,9 +223,6 @@
     (unless (require package nil t)
       (package-install package))))
 
-;; (unless (locate-library "gtags")
-;;   (error "You need to install \"s\" package using M-x package-install"))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; ggtags
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
