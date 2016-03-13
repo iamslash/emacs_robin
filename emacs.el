@@ -398,3 +398,5 @@
   (load "~/.emacs_robin/emacs-mac"))
 (when (locate-library "js3-mode")
   (load "~/.emacs_robin/emacs-js"))
+;(when (eq system-type 'windows-nt)
+;  (load "~/.emacs_robin/emacs-win"))
