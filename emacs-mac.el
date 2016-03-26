@@ -1,8 +1,11 @@
 ;; install wanted packages.
-(let ((wanted '(exec-path-from-shell)))
-  (dolist (package wanted)
-    (unless (require package nil t)
-      (package-install package))))
+;; TODO: why error has occurred...
+;; (let ((wanted '(exec-path-from-shell)))
+;;   (dolist (package wanted)
+;;     (unless (require package nil t)
+;;       (package-install package))))
+;; (unless (locate-library "exec-path-from-shell")
+;;   (package-install 'exec-path-from-shell))
 
 ;;; korean key input.
 (setq default-input-method "korean-hangul")
