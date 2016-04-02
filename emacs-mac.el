@@ -11,7 +11,6 @@
 (setq default-input-method "korean-hangul")
 (define-key global-map (kbd "S-SPC")  'toggle-input-method)
 
-
 ;;; HOME, END.
 (define-key global-map (kbd "<home>") 'beginning-of-line)
 (define-key global-map (kbd "<end>")  'end-of-line)
@@ -46,8 +45,9 @@
 ;; better choice
 ;; https://github.com/purcell/exec-path-from-shell
 ;;
-(when (locate-library "exec-path-from-shell")
-  (require 'exec-path-from-shell)
+;; (when (locate-library "exec-path-from-shell")
+
+(when (load "~/.emacs_robin/exec-path-from-shell.el")
   (exec-path-from-shell-initialize)
   (exec-path-from-shell-copy-env "GOPATH"))
 
