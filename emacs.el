@@ -89,6 +89,7 @@
   )
 
 ;;;;;;;; Auto Mode Alist
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.hpp\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode)) 
@@ -218,10 +219,15 @@
                         ("melpa"     . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 ;; install wanted packages.
-(let ((wanted '(gtags solarized-theme auto-complete magit js3-mode)))
+(let ((wanted '(gtags solarized-theme auto-complete magit js3-mode csharp-mode)))
   (dolist (package wanted)
     (unless (require package nil t)
       (package-install package))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; csharp-mode
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'auto-mode-alist '("\\.cs\\'" . csharp-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; ggtags
