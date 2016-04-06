@@ -89,7 +89,6 @@
   )
 
 ;;;;;;;; Auto Mode Alist
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.hpp\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode)) 
@@ -406,3 +405,4 @@
   (load "~/.emacs_robin/emacs-js"))
 ;(when (eq system-type 'windows-nt)
 ;  (load "~/.emacs_robin/emacs-win"))
+

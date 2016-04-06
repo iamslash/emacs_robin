@@ -31,22 +31,8 @@
   (load-theme 'solarized-light t))
 
 ;; get env from .bash_profile
-;;
-;; (setenv "PATH" (concat "~/opt/bin:"
-;;                        "/usr/local/bin:"
-;;                        "/usr/local/sbin:"
-;;                        (getenv "PATH")))
-;; (setq exec-path
-;;       (append `(,(expand-file-name "~/opt/bin")
-;;                 "/usr/local/bin"
-;;                 "/usr/local/sbin")
-;;               exec-path))
-;;
-;; better choice
 ;; https://github.com/purcell/exec-path-from-shell
-;;
 ;; (when (locate-library "exec-path-from-shell")
-
 (when (load "~/.emacs_robin/exec-path-from-shell.el")
   (exec-path-from-shell-initialize)
   (exec-path-from-shell-copy-env "GOPATH"))
