@@ -218,7 +218,7 @@
                         ("melpa"     . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 ;; install wanted packages.
-(let ((wanted '(gtags solarized-theme auto-complete magit js3-mode
+(let ((wanted '(solarized-theme auto-complete magit js3-mode
                       nyan-mode)))
   (dolist (package wanted)
     (unless (require package nil t)
@@ -227,14 +227,14 @@
 ;; 이상하게 wanted에 입력해 놓으면 설치 안되는 녀석들은 list-packges를
 ;; 통해서 수동으로 설치하자.
 ;;
-;; iedit
+;; ggtags, 
+;; iedit, flymake-google-cpplint, flymake-cursor, google-c-style
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; nyan-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (when (locate-library "nyan-mode")
   (require 'nyan-mode)
-  (setq-default nyan-wavy-trail t)
   (nyan-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -252,7 +252,16 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; ggtags
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(when (locate-library "gtags")
+
+;; Install)
+;; 0. Install Global with support for exuberant ctags
+;;     https://github.com/leoliu/ggtags/wiki/Install-Global-with-support-for-exuberant-ctags
+;;   > brew install --HEAD ctags
+;;   > brew install global --with-exuberant-ctags
+;; 1. list-packages ggtags
+;;
+;; Usage) https://github.com/leoliu/ggtags
+(when (locate-library "ggtags")
   (add-hook 'c-mode-common-hook
             (lambda ()
               (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
@@ -347,6 +356,27 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; c++
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; ;; flymake-google-cpplint
+;; ;; 0. list-package flymake-google-cpplint
+;; ;; 1. sudo pip install cpplint
+;; ;; 2. list-package flymake-cursor
+;; ;; 2. list-package google-c-style
+;; (defun my:flymake-google-init ()
+;;   (require 'flymake-google-cpplint)
+;;   (custom-set-variables
+;;    '(flymake-google-cpplint-command "/usr/local/bin/cpplint"))
+;;   (flymake-google-cpplint-load))
+
+;; (when (locate-library "flymake-google-cpplint")
+;;   (add-hook 'c-mode-hook 'my:flymake-google-init)
+;;   (add-hook 'c++-mode-hook 'my:flymake-google-init)
+;;   ; start google-c-style with emacs
+;;   (when (locate-library "google-c-style")
+;;     (require 'google-c-style)
+;;     (add-hook 'c-mode-common-hook 'google-set-c-style)
+;;     (add-hook 'c-mode-common-hook 'google-make-newline-indent)))
+
 ;; c++ indentation
 (defconst my-c-style
   '((c-tab-always-indent          . t)
