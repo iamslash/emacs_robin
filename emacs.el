@@ -218,7 +218,7 @@
                         ("melpa"     . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 ;; install wanted packages.
-(let ((wanted '(gtags solarized-theme auto-complete magit js3-mode csharp-mode)))
+(let ((wanted '(gtags solarized-theme auto-complete magit js3-mode)))
   (dolist (package wanted)
     (unless (require package nil t)
       (package-install package))))
@@ -245,6 +245,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; auto complete mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'auto-complete)
+(require 'auto-complete-config)
 (ac-config-default)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
