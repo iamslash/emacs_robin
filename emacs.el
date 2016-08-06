@@ -218,10 +218,31 @@
                         ("melpa"     . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 ;; install wanted packages.
-(let ((wanted '(gtags solarized-theme auto-complete magit js3-mode)))
+(let ((wanted '(gtags solarized-theme auto-complete magit js3-mode
+                      nyan-mode)))
   (dolist (package wanted)
     (unless (require package nil t)
       (package-install package))))
+
+;; 이상하게 wanted에 입력해 놓으면 설치 안되는 녀석들은 list-packges를
+;; 통해서 수동으로 설치하자.
+;;
+;; iedit
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; nyan-mode
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(when (locate-library "nyan-mode")
+  (require 'nyan-mode)
+  (setq-default nyan-wavy-trail t)
+  (nyan-mode))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; iedit
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Fix iedit bug in Mac
+(when (locate-library "iedit")
+  (define-key global-map (kbd "C-c ;") 'iedit-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; csharp-mode
