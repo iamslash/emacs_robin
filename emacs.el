@@ -357,25 +357,25 @@
 ;;; c++
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; ;; flymake-google-cpplint
-;; ;; 0. list-package flymake-google-cpplint
-;; ;; 1. sudo pip install cpplint
-;; ;; 2. list-package flymake-cursor
-;; ;; 2. list-package google-c-style
-;; (defun my:flymake-google-init ()
-;;   (require 'flymake-google-cpplint)
-;;   (custom-set-variables
-;;    '(flymake-google-cpplint-command "/usr/local/bin/cpplint"))
-;;   (flymake-google-cpplint-load))
+;; flymake-google-cpplint
+;; 0. list-package flymake-google-cpplint
+;; 1. sudo pip install cpplint
+;; 2. list-package flymake-cursor
+;; 2. list-package google-c-style
+(defun my:flymake-google-init ()
+  (require 'flymake-google-cpplint)
+  (custom-set-variables
+   '(flymake-google-cpplint-command "/usr/local/bin/cpplint"))
+  (flymake-google-cpplint-load))
 
-;; (when (locate-library "flymake-google-cpplint")
-;;   (add-hook 'c-mode-hook 'my:flymake-google-init)
-;;   (add-hook 'c++-mode-hook 'my:flymake-google-init)
-;;   ; start google-c-style with emacs
-;;   (when (locate-library "google-c-style")
-;;     (require 'google-c-style)
-;;     (add-hook 'c-mode-common-hook 'google-set-c-style)
-;;     (add-hook 'c-mode-common-hook 'google-make-newline-indent)))
+(when (locate-library "flymake-google-cpplint")
+  (add-hook 'c-mode-hook 'my:flymake-google-init)
+  (add-hook 'c++-mode-hook 'my:flymake-google-init)
+  ; start google-c-style with emacs
+  (when (locate-library "google-c-style")
+    (require 'google-c-style)
+    (add-hook 'c-mode-common-hook 'google-set-c-style)
+    (add-hook 'c-mode-common-hook 'google-make-newline-indent)))
 
 ;; c++ indentation
 (defconst my-c-style
