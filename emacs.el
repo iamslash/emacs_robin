@@ -259,8 +259,11 @@
 ;;   > brew install --HEAD ctags
 ;;   > brew install global --with-exuberant-ctags
 ;; 1. list-packages ggtags
-;;
+;; 2. set 
 ;; Usage) https://github.com/leoliu/ggtags
+;;
+;; How to make tags
+;; > 
 (when (locate-library "ggtags")
   (add-hook 'c-mode-common-hook
             (lambda ()
@@ -377,69 +380,69 @@
     (add-hook 'c-mode-common-hook 'google-set-c-style)
     (add-hook 'c-mode-common-hook 'google-make-newline-indent)))
 
-;; c++ indentation
-(defconst my-c-style
-  '((c-tab-always-indent          . t)
-    (c-comment-only-line-offset   . 4)
-    (c-hanging-braces-alist       . ((substatement-open after)
-                                     (brace-list-open)))
-    (c-hanging-colons-alist       . ((member-init-intro before)
-                                     (inher-intro)
-                                     (case-label after)
-                                     (label after)
-                                     (access-label after)))
-    (c-cleanup-list               . (scope-operator
-                                     empty-defun-braces
-                                     defun-close-semi))
-    (c-offsets-alist              . ((arglist-close . c-lineup-arglist)
-                                     (substatement-open . 0)
-                                     (case-label        . 0)
-                                     (block-open        . 0)
-                                     (namespace-open . 0)
-                                     (namespace-close . 0)
-                                     (innamespace . 0)
-                                     (inextern-lang . 0)
-                                     (knr-argdecl-intro . -)))
-    (c-echo-syntactic-information-p . t)
-    )
-  "My C Programming Style")
+;; ;; c++ indentation
+;; (defconst my-c-style
+;;   '((c-tab-always-indent          . t)
+;;     (c-comment-only-line-offset   . 4)
+;;     (c-hanging-braces-alist       . ((substatement-open after)
+;;                                      (brace-list-open)))
+;;     (c-hanging-colons-alist       . ((member-init-intro before)
+;;                                      (inher-intro)
+;;                                      (case-label after)
+;;                                      (label after)
+;;                                      (access-label after)))
+;;     (c-cleanup-list               . (scope-operator
+;;                                      empty-defun-braces
+;;                                      defun-close-semi))
+;;     (c-offsets-alist              . ((arglist-close . c-lineup-arglist)
+;;                                      (substatement-open . 0)
+;;                                      (case-label        . 0)
+;;                                      (block-open        . 0)
+;;                                      (namespace-open . 0)
+;;                                      (namespace-close . 0)
+;;                                      (innamespace . 0)
+;;                                      (inextern-lang . 0)
+;;                                      (knr-argdecl-intro . -)))
+;;     (c-echo-syntactic-information-p . t)
+;;     )
+;;   "My C Programming Style")
 
-;; Customizations for all modes in CC Mode.
-(defun my-c-mode-common-hook ()
-  (c-add-style "PERSONAL" my-c-style t)
-  (setq tab-width 4
-        ;;indent-tabs-mode t
-        c-basic-offset 4)
-  (c-toggle-auto-state -1)              ; disable auto-newline mode
-  (c-toggle-hungry-state 1)             ; enable hungry-delete mode
+;; ;; Customizations for all modes in CC Mode.
+;; (defun my-c-mode-common-hook ()
+;;   (c-add-style "PERSONAL" my-c-style t)
+;;   (setq tab-width 4
+;;         ;;indent-tabs-mode t
+;;         c-basic-offset 4)
+;;   (c-toggle-auto-state -1)              ; disable auto-newline mode
+;;   (c-toggle-hungry-state 1)             ; enable hungry-delete mode
 
-  ;; indentation with return
-  (define-key c-mode-base-map "\C-m" 'newline-and-indent)
+;;   ;; indentation with return
+;;   (define-key c-mode-base-map "\C-m" 'newline-and-indent)
 
-  ;; C-c RET to switch between h and cpp files.
-  (define-key c-mode-base-map [(control c)(return)] 'ff-find-other-file)
+;;   ;; C-c RET to switch between h and cpp files.
+;;   (define-key c-mode-base-map [(control c)(return)] 'ff-find-other-file)
 
-  ;; if enabled ecb mode, C-c C-c for ecb-goto-window-methods 
-  (when (fboundp 'ecb-goto-window-methods)
-    (define-key c-mode-base-map [(control c)(control c)] 'ecb-goto-window-methods))
+;;   ;; if enabled ecb mode, C-c C-c for ecb-goto-window-methods 
+;;   (when (fboundp 'ecb-goto-window-methods)
+;;     (define-key c-mode-base-map [(control c)(control c)] 'ecb-goto-window-methods))
 
-  ;; if enabled cedet mode, META-Ret for semantic-analyze-possible-completions.
-  (when (fboundp 'semantic-analyze-possible-completions)
-    (define-key c-mode-base-map [(meta return)] 'semantic-ia-complete-symbol))
+;;   ;; if enabled cedet mode, META-Ret for semantic-analyze-possible-completions.
+;;   (when (fboundp 'semantic-analyze-possible-completions)
+;;     (define-key c-mode-base-map [(meta return)] 'semantic-ia-complete-symbol))
   
-  (c-set-offset 'substatement-open 0)
-  (c-set-offset 'member-init-intro '++)
-  (c-set-offset 'inline-open 0)
-  (c-set-offset 'comment-intro 0)
-  (c-set-offset 'label 0)
-  (c-set-offset 'arglist-intro '+)
+;;   (c-set-offset 'substatement-open 0)
+;;   (c-set-offset 'member-init-intro '++)
+;;   (c-set-offset 'inline-open 0)
+;;   (c-set-offset 'comment-intro 0)
+;;   (c-set-offset 'label 0)
+;;   (c-set-offset 'arglist-intro '+)
 
-  (hs-minor-mode 1)
-  (hide-ifdef-mode 1)
-  (setq hide-ifdef-lines t)             ; #if 
-  (setq hide-ifdef-read-only t))         ; readonly in case of hide-ifdef-mode
+;;   (hs-minor-mode 1)
+;;   (hide-ifdef-mode 1)
+;;   (setq hide-ifdef-lines t)             ; #if 
+;;   (setq hide-ifdef-read-only t))         ; readonly in case of hide-ifdef-mode
 
-(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+;; (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
 ;; 
 (font-lock-add-keywords 'c++-mode
