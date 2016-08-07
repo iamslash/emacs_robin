@@ -228,7 +228,7 @@
 ;; 통해서 수동으로 설치하자.
 ;;
 ;; ggtags, 
-;; iedit, flymake-google-cpplint, flymake-cursor, google-c-style
+;; iedit, yasnippet, flymake-google-cpplint, flymake-cursor, google-c-style
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; nyan-mode
@@ -360,11 +360,26 @@
 ;;; c++
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; yasnippet
+; start yasnippet with emacs
+(when (locate-library "yasnippet")
+  (require 'yasnippet)
+  (yas-global-mode 1))
+;; auto-complete-c-headers
+(when (locate-library "auto-complete-c-headers")
+  ; let's define a function which initializes auto-complete-c-headers and gets called for c/c++ hooks
+  (defun my:ac-c-header-init ()
+    (require 'auto-complete-c-headers)
+    (add-to-list 'ac-sources 'ac-source-c-headers)
+    (add-to-list 'achead:include-directories '"/usr/include/c++/4.2.1"))
+  ; now let's call this function from c/c++ hooks
+  (add-hook 'c++-mode-hook 'my:ac-c-header-init)
+  (add-hook 'c-mode-hook 'my:ac-c-header-init))
 ;; flymake-google-cpplint
-;; 0. list-package flymake-google-cpplint
-;; 1. sudo pip install cpplint
-;; 2. list-package flymake-cursor
-;; 2. list-package google-c-style
+; 0. list-package flymake-google-cpplint
+; 1. sudo pip install cpplint
+; 2. list-package flymake-cursor
+; 2. list-package google-c-style
 (defun my:flymake-google-init ()
   (require 'flymake-google-cpplint)
   (custom-set-variables
