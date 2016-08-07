@@ -380,6 +380,16 @@
     (add-hook 'c-mode-common-hook 'google-set-c-style)
     (add-hook 'c-mode-common-hook 'google-make-newline-indent)))
 
+;; NOTICE: intellicense does not work and too slow...
+;; ;; semantic-mode
+;; ; turn on Semantic
+;; (semantic-mode 1)
+;; ; let's define a function which adds semantic as a suggestion backend to auto complete
+;; ; and hook this function to c-mode-common-hook
+;; (defun my:add-semantic-to-autocomplete() 
+;;   (add-to-list 'ac-sources 'ac-source-semantic))
+;; (add-hook 'c-mode-common-hook 'my:add-semantic-to-autocomplete)
+
 ;; ;; c++ indentation
 ;; (defconst my-c-style
 ;;   '((c-tab-always-indent          . t)
