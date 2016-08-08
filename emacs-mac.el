@@ -25,11 +25,6 @@
  (add-to-list 'default-frame-alist
               '(font . "DejaVu Sans Mono-15")))
 
-
-;; solarized-light 
-(when window-system
-  (load-theme 'solarized-light t))
-
 ;; get env from .bash_profile
 ;; https://github.com/purcell/exec-path-from-shell
 ;; (when (locate-library "exec-path-from-shell")
