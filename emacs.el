@@ -218,7 +218,7 @@
                         ("melpa"     . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 ;; install wanted packages.
-(let ((wanted '(auto-complete magit js3-mode
+(let ((wanted '(solarized-theme auto-complete magit js3-mode
                       nyan-mode)))
   (dolist (package wanted)
     (unless (require package nil t)
