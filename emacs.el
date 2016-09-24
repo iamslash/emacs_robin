@@ -216,19 +216,31 @@
                         ("gnu"       . "http://elpa.gnu.org/packages/")
                         ("marmalade" . "http://marmalade-repo.org/packages/")
                         ("melpa"     . "http://melpa.milkbox.net/packages/")))
-(package-initialize)
-;; install wanted packages.
-(let ((wanted '(solarized-theme auto-complete magit js3-mode
-                      nyan-mode)))
-  (dolist (package wanted)
-    (unless (require package nil t)
-      (package-install package))))
 
-;; 이상하게 wanted에 입력해 놓으면 설치 안되는 녀석들은 list-packges를
-;; 통해서 수동으로 설치하자.
-;;
-;; ggtags, 
-;; iedit, yasnippet, flymake-google-cpplint, flymake-cursor, google-c-style
+(defun ensure-package-installed (&rest packages)
+  "Assure every package is installed, ask for installation if it’s not.
+Return a list of installed packages or nil for every skipped package."
+  (mapcar
+   (lambda (package)
+     ;; (package-installed-p 'evil)
+     (if (package-installed-p package)
+         nil
+       (if (y-or-n-p (format "Package %s is missing. Install it? " package))
+           (package-install package)
+         package)))
+   packages))
+
+;; make sure to have downloaded archive description.
+;; Or use package-archive-contents as suggested by Nicolas Dudebout
+(or (file-exists-p package-user-dir)
+    (package-refresh-contents))
+
+(ensure-package-installed 'solarized-theme 'auto-complete 'magit 'js3-mode
+                          'nyan-mode 'iedit 'yasnippet 'flymake-google-cpplint
+                          'flymake-cursor 'google-c-style) ;  --> (nil nil) if iedit and magit are already installed
+
+;; activate installed packages
+(package-initialize)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; docview
