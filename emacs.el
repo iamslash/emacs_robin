@@ -235,6 +235,9 @@ Return a list of installed packages or nil for every skipped package."
 (or (file-exists-p package-user-dir)
     (package-refresh-contents))
 
+;; if you fail to install one of packages you should M-x list-packages
+;; after connection to package-archives ensure-package-installed will work
+;; How can I automate it??? - by iamslash
 (ensure-package-installed 'solarized-theme 'auto-complete 'magit 'js3-mode
                           'nyan-mode 'iedit 'yasnippet 'flymake-google-cpplint
                           'flymake-cursor 'google-c-style) ;  --> (nil nil) if iedit and magit are already installed
