@@ -211,39 +211,32 @@
 ;;; package install
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; M-x list-packages
+;; http://batsov.com/articles/2012/02/19/package-management-in-emacs-the-good-the-bad-and-the-ugly/
 (require 'package)
 (setq package-archives '(("ELPA"      . "http://tromey.com/elpa/")
                         ("gnu"       . "http://elpa.gnu.org/packages/")
                         ("marmalade" . "http://marmalade-repo.org/packages/")
                         ("melpa"     . "http://melpa.milkbox.net/packages/")))
+(defvar prelude-packages
+  '(ack-and-a-half solarized-theme auto-complete magit js3-mode
+                          nyan-mode iedit yasnippet flymake-google-cpplint
+                          flymake-cursor google-c-style)
+  "A list of packages to ensure are installed at launch.")
 
-(defun ensure-package-installed (&rest packages)
-  "Assure every package is installed, ask for installation if it’s not.
-Return a list of installed packages or nil for every skipped package."
-  (mapcar
-   (lambda (package)
-     ;; (package-installed-p 'evil)
-     (if (package-installed-p package)
-         nil
-       (if (y-or-n-p (format "Package %s is missing. Install it? " package))
-           (package-install package)
-         package)))
-   packages))
+(defun prelude-packages-installed-p ()
+  (cl-loop for p in prelude-packages
+        when (not (package-installed-p p)) do (cl-return nil)
+        finally (cl-return t)))
 
-;; make sure to have downloaded archive description.
-;; Or use package-archive-contents as suggested by Nicolas Dudebout
-(or (file-exists-p package-user-dir)
-    (package-refresh-contents))
-
-;; if you fail to install one of packages you should M-x list-packages
-;; after connection to package-archives ensure-package-installed will work
-;; How can I automate it??? - by iamslash
-(ensure-package-installed 'solarized-theme 'auto-complete 'magit 'js3-mode
-                          'nyan-mode 'iedit 'yasnippet 'flymake-google-cpplint
-                          'flymake-cursor 'google-c-style) ;  --> (nil nil) if iedit and magit are already installed
-
-;; activate installed packages
-(package-initialize)
+(unless (prelude-packages-installed-p)
+  ;; check for new packages (package versions)
+  (message "%s" "Emacs Prelude is now refreshing its package database...")
+  (package-refresh-contents)
+  (message "%s" " done.")
+  ;; install the missing packages
+  (dolist (p prelude-packages)
+    (when (not (package-installed-p p))
+      (package-install p))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; docview
