@@ -218,9 +218,9 @@
                         ("marmalade" . "http://marmalade-repo.org/packages/")
                         ("melpa"     . "http://melpa.milkbox.net/packages/")))
 (defvar prelude-packages
-  '(ack-and-a-half solarized-theme auto-complete magit js3-mode
-                          nyan-mode iedit yasnippet flymake-google-cpplint
-                          flymake-cursor google-c-style)
+  '(solarized-theme auto-complete magit js3-mode
+                    nyan-mode iedit yasnippet flymake-google-cpplint
+                    flymake-cursor google-c-style)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
