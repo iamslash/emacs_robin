@@ -401,12 +401,11 @@
 ;; flymake-google-cpplint
 ; 0. list-package flymake-google-cpplint
 ; 1. sudo pip install cpplint
-; 2. list-package flymake-cursor
-; 2. list-package google-c-style
+; 2. cpplint path should be added to PATH
 (defun my:flymake-google-init ()
   (require 'flymake-google-cpplint)
   (custom-set-variables
-   '(flymake-google-cpplint-command "/usr/local/bin/cpplint"))
+   '(flymake-google-cpplint-command "cpplint"))
   (flymake-google-cpplint-load))
 
 (when (locate-library "flymake-google-cpplint")
