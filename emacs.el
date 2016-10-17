@@ -405,7 +405,7 @@
 (defun my:flymake-google-init ()
   (require 'flymake-google-cpplint)
   (custom-set-variables
-   '(flymake-google-cpplint-command "cpplint"))
+   '(flymake-google-cpplint-command "/usr/local/bin/cpplint"))
   (flymake-google-cpplint-load))
 
 (when (locate-library "flymake-google-cpplint")
