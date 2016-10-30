@@ -242,6 +242,22 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; go-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 0. install go
+;; > brew install go
+;;
+;; 0. setting .bash_profile
+;;   export GOROOT=/usr/local/opt/go       
+;;   export GOPATH=~/my/go
+;;   export PATH=$PATH:$GOROOT/bin
+;;   export PATH=$PATH:$GOPATH/bin
+;;
+;; 1. install go package
+;; > go get github.com/rogpeppe/godef
+;; > go get -u github.com/nsf/gocode
+;; > go get golang.org/x/tools/cmd/goimports
+;; > go get golang.org/x/tools/cmd/oracle
+;; > go get github.com/tleyden/checkers-bot-minimax
+;;
 (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
 (defun my-go-mode-hook ()
   ; Use goimports instead of go-fmt
