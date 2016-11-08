@@ -1,8 +1,9 @@
 ;; -*- coding: utf-8 -*-
 ;; -*- mode: Emacs-Lisp; outline-regexp: "^;;;; .*";  -*-
 
-;; 
-
+;; https://github.com/emacs-tw/awesome-emacs 
+;;   A community driven list of useful Emacs packages, libraries and others.
+;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Global
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -221,7 +222,7 @@
   '(csharp-mode solarized-theme auto-complete magit js3-mode
                 nyan-mode iedit yasnippet flymake-google-cpplint
                 flymake-cursor google-c-style php-mode go-mode
-                go-autocomplete)
+                go-autocomplete markdown-mode)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
