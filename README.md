@@ -1,17 +1,31 @@
+# Setting on osx
 
-# Install
+- Install
 
-Use curl (for Mac OS X):
 ~~~~
 > brew install curl
 > curl -o - https://raw.githubusercontent.com/iamslash/emacs_robin/master/install-all.sh | sh
 ~~~~
 
-# UnInstall
+- UnInstall
 
-Use curl (for Mac OS X):
 ~~~~
 > curl -o - https://raw.githubusercontent.com/iamslash/emacs_robin/master/uninstall-all.sh | sh
+~~~~
+
+# Setting on windows
+
+- Install
+
+~~~~
+> choco install curl
+> curl -o - https://raw.githubusercontent.com/iamslash/emacs_robin/master/install-all.bat | cmd.exe
+~~~~
+
+- UnInstall
+
+~~~~
+> curl -o - https://raw.githubusercontent.com/iamslash/emacs_robin/master/uninstall-all.bat | cmd.exe
 ~~~~
 
 # How to learn emacs script
