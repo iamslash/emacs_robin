@@ -252,11 +252,14 @@
 ;;   export PATH=$PATH:$GOPATH/bin
 ;;
 ;; 1. install go package
-;; > go get github.com/rogpeppe/godef
-;; > go get -u github.com/nsf/gocode
-;; > go get golang.org/x/tools/cmd/goimports
-;; > go get golang.org/x/tools/cmd/oracle
-;; > go get github.com/tleyden/checkers-bot-minimax
+;; go get -u golang.org/x/tools/cmd/goimports
+;; go get -u golang.org/x/tools/cmd/vet
+;; go get -u golang.org/x/tools/cmd/oracle
+;; go get -u golang.org/x/tools/cmd/godoc
+;; go get -u github.com/golang/lint/golint
+;; go get -u github.com/nsf/gocode
+;; go get -u github.com/rogpeppe/godef
+;; go get -u github.com/tleyden/checkers-bot-minimax
 ;;
 (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
 (defun my-go-mode-hook ()
