@@ -229,7 +229,7 @@
   (cl-loop for p in prelude-packages
         when (not (package-installed-p p)) do (cl-return nil)
         finally (cl-return t)))
-
+(package-initialize)
 (unless (prelude-packages-installed-p)
   ;; check for new packages (package versions)
   (message "%s" "Emacs Prelude is now refreshing its package database...")
