@@ -62,29 +62,34 @@
 
 ;;;;;;;; CODEC
 ;; http://props.tistory.com/35
-(when (or (and enable-multibyte-characters macosxp)
-          (and enable-multibyte-characters win32p))
-
+(when enable-multibyte-characters
   (set-language-environment "Korean")
   (setq file-coding-system 'utf-8)
   (setq display-coding-system 'utf-8)
   (setq-default coding-system 'utf-8)
   (setq-default buffer-coding-system 'utf-8)
-  ;; (setq-default buffer-file-coding-system 'utf-8)
-  ;; (setq-default file-name-coding-system 'utf-8)
-  (setq sendmail-coding-system 'utf-8)
+  (setq-default buffer-file-coding-system 'utf-8)
   (setq keyboard-coding-system 'utf-8)
   (setq terminal-coding-system 'utf-8)
   (setq locale-coding-system 'utf-8)
   (set-selection-coding-system 'utf-8)
-   
-  ;; (setq-default file-name-coding-system 'euc-kr)
+  (set-clipboard-coding-system 'utf-8)   
   (setq input-method-verbose-flag nil
         input-method-highlight-flag nil)
   (prefer-coding-system 'utf-8)
   (set-default-coding-systems 'utf-8)
   ;; Hangul Mail setting
   (setq-default sendmail-coding-system 'utf-8))
+
+;; on windows 7 should use euc-kr
+(when (and enable-multibyte-characters win32p)
+  (set-w32-system-coding-system 'euc-kr)
+  ;; (setq-default file-name-coding-system 'euc-kr)
+  (setq terminal-coding-system 'euc-kr)
+  (setq keyboard-coding-system 'euc-kr)
+  ;(setq shell-coding-system 'euc-kr)
+  (set-selection-coding-system 'euc-kr)
+  (set-clipboard-coding-system 'euc-kr))
 
 ;;;;;;;; Font
 (when win32p
