@@ -60,15 +60,18 @@
 (global-set-key [(shift f4)] 'previous-error)
 
 
-;;;;;;;; CODEC 
+;;;;;;;; CODEC
+;; http://props.tistory.com/35
 (when (or (and enable-multibyte-characters macosxp)
           (and enable-multibyte-characters win32p))
 
   (set-language-environment "Korean")
-  (setq-default coding-system 'utf-8)
   (setq file-coding-system 'utf-8)
   (setq display-coding-system 'utf-8)
+  (setq-default coding-system 'utf-8)
   (setq-default buffer-coding-system 'utf-8)
+  ;; (setq-default buffer-file-coding-system 'utf-8)
+  ;; (setq-default file-name-coding-system 'utf-8)
   (setq sendmail-coding-system 'utf-8)
   (setq keyboard-coding-system 'utf-8)
   (setq terminal-coding-system 'utf-8)
