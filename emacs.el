@@ -230,7 +230,7 @@
   '(csharp-mode solarized-theme auto-complete magit js3-mode
                 nyan-mode iedit yasnippet flymake-google-cpplint
                 flymake-cursor google-c-style php-mode go-mode
-                go-autocomplete markdown-mode ggtags)
+                go-autocomplete markdown-mode ggtags elm-mode)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
