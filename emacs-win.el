@@ -47,3 +47,7 @@
 ;;;; shortcut
 (global-set-key [(f5)] 'win-launch-terminal)
 (global-set-key [(M-f5)] 'win-launch-explorer)
+
+;;;; markdown-mode
+(custom-set-variables
+ '(markdown-command "C:\\Program Files (x86)\\Pandoc\\pandoc.exe"))
