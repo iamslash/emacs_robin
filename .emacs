@@ -6,3 +6,17 @@
 (package-initialize)
 
 (load "~/.emacs_robin/emacs.el")
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (ggtags yasnippet solarized-theme php-mode nyan-mode markdown-mode magit js3-mode iedit google-c-style go-mode go-autocomplete flymake-google-cpplint flymake-cursor csharp-mode ack-and-a-half))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
