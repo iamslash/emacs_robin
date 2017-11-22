@@ -230,7 +230,7 @@
                 nyan-mode iedit yasnippet flymake-google-cpplint
                 flymake-cursor google-c-style php-mode go-mode
                 go-autocomplete markdown-mode ggtags elm-mode
-                clojure-mode nrepl)
+                clojure-mode)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
@@ -257,11 +257,8 @@
   (require 'clojure-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; nrepl-mode
+;;; cider
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(when (locate-library "nrepl")
-  (add-to-list 'load-path "~/.emacs.d/nrepl.el")
-  (require 'nrepl))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; go-mode
