@@ -230,7 +230,7 @@
                 nyan-mode iedit yasnippet flymake-google-cpplint
                 flymake-cursor google-c-style php-mode go-mode
                 go-autocomplete markdown-mode ggtags elm-mode
-                clojure-mode)
+                clojure-mode cider)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
@@ -259,7 +259,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; cider
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+(when (locate-library "cider")
+  (add-hook 'cider-mode-hook #'clj-refactor-mode))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; go-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
