@@ -17,7 +17,10 @@ die() {
 
 # clone emacs_robin
 git clone git@github.com:iamslash/emacs_robin.git $EMACS_ROBIN_HOME || die "git clone failed."
-ln -s "$EMACS_ROBIN_HOME/.emacs" ~/.emacs || die ".emacs symbolic link failed."
+# create .emacs
+echo "(load \"$EMACS_ROBIN_HOME/emacs.el\")" > ~/.emacs
+# ln -s "$EMACS_ROBIN_HOME/.emacs" ~/.emacs || die ".emacs symbolic link failed."
+
 
 #
 echo "emacs_robin is installed."
