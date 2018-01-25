@@ -230,7 +230,7 @@
                 nyan-mode iedit yasnippet flymake-google-cpplint
                 flymake-cursor google-c-style php-mode go-mode
                 go-autocomplete markdown-mode ggtags elm-mode
-                clojure-mode cider)
+                clojure-mode cider markdown-toc)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
