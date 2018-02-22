@@ -404,40 +404,41 @@
 (define-auto-insert "\\<Makefile\\'" "autoinsert.makefile")
 (define-auto-insert "\\.py\\'" "autoinsert.py")
 (define-auto-insert "\\.pyw\\'" "autoinsert.py")
+(define-auto-insert "\\.cpp\\'" "autoinsert.cpp")
 
-(setq auto-insert-alist
-      (append `(
-                (("\\.\\([Hh]\\|hh\\|hpp\\)\\'" . "C / C++ header")
-                 "" (my-auto-insert-cpp-header))
-                (("\\.\\([Cc]\\|cc\\|cpp\\)\\'" . "C / C++ body")
-                 "" (my-auto-insert-cpp-body)))
-              auto-insert-alist))
+;; (setq auto-insert-alist
+;;       (append `(
+;;                 (("\\.\\([Hh]\\|hh\\|hpp\\)\\'" . "C / C++ header")
+;;                  "" (my-auto-insert-cpp-header))
+;;                 (("\\.\\([Cc]\\|cc\\|cpp\\)\\'" . "C / C++ body")
+;;                  "" (my-auto-insert-cpp-body)))
+;;               auto-insert-alist))
 
-(defun my-auto-insert-cpp-header ()
-  "__HEADER_H__ guard"
-  (let ((guard (upcase
-                (replace-regexp-in-string "\\." "_"
-                                          (file-relative-name  (buffer-file-name))))))
-    (format "#pragma once
-#ifndef __%s__
-#define __%s__
+;; (defun my-auto-insert-cpp-header ()
+;;   "__HEADER_H__ guard"
+;;   (let ((guard (upcase
+;;                 (replace-regexp-in-string "\\." "_"
+;;                                           (file-relative-name  (buffer-file-name))))))
+;;     (format "#pragma once
+;; #ifndef __%s__
+;; #define __%s__
 
-#endif // #ifndef __%s__" guard guard guard)))
+;; #endif // #ifndef __%s__" guard guard guard)))
 
-(defun my-auto-insert-cpp-body ()
-    (let*
-      ((stem
-        (file-name-sans-extension buffer-file-name))
-       (header (cond
-                ((file-exists-p (concat stem ".h"))
-                 (file-name-nondirectory (concat stem ".h")))
-                ((file-exists-p (concat stem ".hpp"))
-                 (file-name-nondirectory (concat stem ".hpp")))
-                ((file-exists-p (concat stem ".hh"))
-                 (file-name-nondirectory (concat stem ".hh"))))))
-      (format "#include \"%s\"
+;; (defun my-auto-insert-cpp-body ()
+;;     (let*
+;;       ((stem
+;;         (file-name-sans-extension buffer-file-name))
+;;        (header (cond
+;;                 ((file-exists-p (concat stem ".h"))
+;;                  (file-name-nondirectory (concat stem ".h")))
+;;                 ((file-exists-p (concat stem ".hpp"))
+;;                  (file-name-nondirectory (concat stem ".hpp")))
+;;                 ((file-exists-p (concat stem ".hh"))
+;;                  (file-name-nondirectory (concat stem ".hh"))))))
+;;       (format "#include \"%s\"
 
-" header)))
+;; " header)))
 
 
 

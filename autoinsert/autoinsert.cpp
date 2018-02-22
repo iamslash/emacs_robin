@@ -1,4 +1,4 @@
-/* Copyright (C) 2016 by iamslash */
+/* Copyright (C) 2018 by iamslash */
 
 #include <cstdio>
 
