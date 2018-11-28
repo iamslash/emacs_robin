@@ -23,7 +23,8 @@
 (when window-system
  ;; (set-frame-font "monaco-15")
  (add-to-list 'default-frame-alist
-              '(font . "DejaVu Sans Mono-15")))
+              ;; '(font . "DejaVu Sans Mono-15")))
+              '(font . "monaco-15")))
 
 ;; get env from .bash_profile
 ;; https://github.com/purcell/exec-path-from-shell
