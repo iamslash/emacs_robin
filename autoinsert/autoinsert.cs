@@ -14,11 +14,10 @@ namespace Main
         /// Entry point into console application.
         /// </summary>
         static void Main()
-        {
-            Console.WriteLine("Hello World\n");
-
-            // Wait for user
-            Console.ReadKey();
+        {           
+            // Solution sln = new Solution();
+            System.Console.WriteLine("Hello World\n");
+            // Console.ReadKey();
         }
     }
 }
