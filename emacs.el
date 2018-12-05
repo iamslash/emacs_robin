@@ -337,8 +337,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; csharp-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'auto-mode-alist '("\\.cs\\'" . csharp-mode))
-
+(when (locate-library "csharp-mode")
+  (autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
+  (add-to-list 'auto-mode-alist '("\\.cs$" . csharp-mode))
+  (defun my-csharp-mode-fn ()
+     "function that runs when csharp-mode is initialized for a buffer."
+     (turn-on-auto-revert-mode)
+     (setq indent-tabs-mode nil))
+  (add-hook  'csharp-mode-hook 'my-csharp-mode-fn t))
+  
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; php-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -405,6 +412,7 @@
 (define-auto-insert "\\.py\\'" "autoinsert.py")
 (define-auto-insert "\\.pyw\\'" "autoinsert.py")
 (define-auto-insert "\\.cpp\\'" "autoinsert.cpp")
+(define-auto-insert "\\.cs\\'" "autoinsert.cs")
 
 ;; (setq auto-insert-alist
 ;;       (append `(
