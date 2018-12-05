@@ -32,6 +32,7 @@
 (defun win-launch-terminal ()
   "Run cmd on the directory of the current buffer"
   (interactive)
+  ;; "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\VsDevCmd.bat"
   (shell-command
    (let ((proc (start-process "cmd" nil "cmd.exe" "/C" "start" "cmd.exe")))
      (set-process-query-on-exit-flag proc nil))))
