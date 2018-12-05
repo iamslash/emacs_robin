@@ -1,8 +1,10 @@
 @ECHO OFF
 
+IF NOT EXIST %HOME% GOTO _ERROR_NOT_SET_HOME_ENV
+
 REM default variables
-SET EMACS_ROBIN_HOME=D:\iamslash\.emacs_robin
-SET EMACS_FILE=D:\iamslash\.emacs
+SET EMACS_ROBIN_HOME=%HOME%\.emacs_robin
+SET EMACS_FILE=%HOME%\.emacs
 
 REM validate arguments
 IF EXIST %EMACS_FILE% GOTO _ERROR_ALREADY_EXIST_EMACS_FILE
@@ -16,6 +18,11 @@ REM mklink %EMACS_FILE% %EMACS_ROBIN_HOME%\.emacs
 
 
 ECHO Success to install emacs_robin
+GOTO _END
+
+:_ERROR_NOT_SET_HOME_ENV
+ECHO ERROR)
+ECHO   Not set HOME env
 GOTO _END
 
 :_ERROR_ALREADY_EXIST_EMACS_FILE
