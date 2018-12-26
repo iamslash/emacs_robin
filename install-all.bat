@@ -13,7 +13,7 @@ IF EXIST %EMACS_ROBIN_HOME% GOTO _ERROR_ALREADY_EXIST_EMACS_ROBIN_HOME
 REM clone emacs_robin
 git clone git@github.com:iamslash/emacs_robin.git %EMACS_ROBIN_HOME%
 REM create .emacs
-ECHO "(load \"%EMACS_ROBIN_HOME%\emacs.el\")" > %EMACS_FILE%
+ECHO (load (concat (getenv "HOME") "\\.emacs_robin\\emacs.el")) > %EMACS_FILE%
 REM mklink %EMACS_FILE% %EMACS_ROBIN_HOME%\.emacs
 
 
