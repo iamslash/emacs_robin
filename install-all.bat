@@ -6,6 +6,7 @@ REM default variables
 SET EMACS_ROBIN_HOME=%HOME%\.emacs_robin
 SET EMACS_FILE=%HOME%\.emacs
 
+
 REM validate arguments
 IF EXIST %EMACS_FILE% GOTO _ERROR_ALREADY_EXIST_EMACS_FILE
 IF EXIST %EMACS_ROBIN_HOME% GOTO _ERROR_ALREADY_EXIST_EMACS_ROBIN_HOME
@@ -13,9 +14,9 @@ IF EXIST %EMACS_ROBIN_HOME% GOTO _ERROR_ALREADY_EXIST_EMACS_ROBIN_HOME
 REM clone emacs_robin
 git clone git@github.com:iamslash/emacs_robin.git %EMACS_ROBIN_HOME%
 REM create .emacs
-ECHO (load (concat (getenv "HOME") "\\.emacs_robin\\emacs.el")) > %EMACS_FILE%
+SET EMACS_ROBIN_HOME=%EMACS_ROBIN_HOME:\=/%
+ECHO (load (expand-file-name "emacs.el" "%EMACS_ROBIN_HOME%")) > %EMACS_FILE%
 REM mklink %EMACS_FILE% %EMACS_ROBIN_HOME%\.emacs
-
 
 ECHO Success to install emacs_robin
 GOTO _END
