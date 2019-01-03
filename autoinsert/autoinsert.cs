@@ -1,4 +1,4 @@
-// Copyright (C) 2018 by iamslash
+// Copyright (C) 2019 by iamslash
 
 using System;
 using System.Collections.Generic;
