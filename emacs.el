@@ -15,7 +15,7 @@
 (defconst homep (string-equal system-name "SALSHHOMEONE") "true if home")
 (defconst officep (string-equal system-name "DO-PC") "true if office")
 
-;;;;;;;;  
+;;;;;;;;
 (global-font-lock-mode 1)               ; syntanx highlight
 (transient-mark-mode 1)                 ; marking highlight
 (show-paren-mode t)                     ; 
@@ -34,7 +34,8 @@
 (if (functionp 'tool-bar-mode) (tool-bar-mode 0))
 (if (functionp 'scroll-bar-mode) (scroll-bar-mode 0))
 (auto-compression-mode 1)               ; 
-(setq-default indent-tabs-mode nil)     ; 
+(setq-default indent-tabs-mode nil)     ;
+(setq default-tab-width 2)
 ;; https://www.emacswiki.org/emacs/IncrementalSearch
 (define-key isearch-mode-map (kbd "C-y") 'isearch-yank-kill)
 ;;;; windows key
@@ -286,12 +287,6 @@
 (when (locate-library "go-mode")
   (autoload 'go-mode "go-mode" nil t)
   (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
-;; (add-hook 'go-mode-hook
-;;   (lambda ()
-;;     (setq-default)
-;;     (setq tab-width 2)
-;;     (setq standard-indent 2)
-;;     (setq indent-tabs-mode nil)))
   (defun my-go-mode-hook ()
     (setq tab-width 2)
     (setq standard-indent 2)
