@@ -284,6 +284,12 @@
 ;; go get -u github.com/tleyden/checkers-bot-minimax
 ;;
 (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
+;; (add-hook 'go-mode-hook
+;;   (lambda ()
+;;     (setq-default)
+;;     (setq tab-width 2)
+;;     (setq standard-indent 2)
+;;     (setq indent-tabs-mode nil)))
 (defun my-go-mode-hook ()
   ; Use goimports instead of go-fmt
   (setq gofmt-command "goimports")
@@ -296,7 +302,10 @@
   ; Go oracle
   (load-file "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
   ; Godef jump key binding
-  (local-set-key (kbd "M-.") 'godef-jump))
+  (local-set-key (kbd "M-.") 'godef-jump)
+  (setq tab-width 2)
+  (setq standard-indent 2)
+  (setq indent-tabs-mode nil))
 (add-hook 'go-mode-hook 'my-go-mode-hook)
 
 (defun auto-complete-for-go ()
