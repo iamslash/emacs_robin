@@ -420,6 +420,8 @@
 (define-auto-insert "\\.pyw\\'" "autoinsert.py")
 (define-auto-insert "\\.cpp\\'" "autoinsert.cpp")
 (define-auto-insert "\\.cs\\'" "autoinsert.cs")
+(define-auto-insert "\\.go\\'" "autoinsert.go")
+(define-auto-insert "\\.java\\'" "autoinsert.java")
 
 ;; (setq auto-insert-alist
 ;;       (append `(

@@ -1,3 +1,5 @@
+/* Copyright (C) 2019 by iamslash */
+
 package main
 
 import "fmt"
