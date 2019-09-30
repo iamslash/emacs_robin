@@ -431,6 +431,7 @@
 (define-auto-insert "\\.cs\\'" "autoinsert.cs")
 (define-auto-insert "\\.go\\'" "autoinsert.go")
 (define-auto-insert "\\.java\\'" "autoinsert.java")
+(define-auto-insert "\\README.md\\'" "README.md")
 
 ;; (setq auto-insert-alist
 ;;       (append `(
