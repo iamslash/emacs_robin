@@ -42,3 +42,13 @@
 ;; ;Using paredit with javascript
 ;; (define-key js-mode-map "{" 'paredit-open-curly)
 ;; (define-key js-mode-map "}" 'paredit-close-curly-and-newline)
+
+;;
+(add-hook 'js-mode-hook
+  (lambda ()
+    (setq indent-tabs-mode t)
+    (setq tab-width 2)
+    ;; Customize compile command to run a.js
+    (if (not (string-match "js" compile-command))
+        (set (make-local-variable 'compile-command)
+             "node a.py"))))
