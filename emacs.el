@@ -256,7 +256,11 @@
   (lambda ()
     (setq indent-tabs-mode t)
     (setq tab-width 2)
-    (setq python-indent-offset 2)))
+    (setq python-indent-offset 2)
+    ;; Customize compile command to run a.py
+    (if (not (string-match "py" compile-command))
+        (set (make-local-variable 'compile-command)
+             "python a.py"))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; clojure-mode
@@ -431,6 +435,7 @@
 (define-auto-insert "\\.cs\\'" "autoinsert.cs")
 (define-auto-insert "\\.go\\'" "autoinsert.go")
 (define-auto-insert "\\.java\\'" "autoinsert.java")
+(define-auto-insert "\\.js\\'" "autoinsert.js")
 (define-auto-insert "\\README.md\\'" "README.md")
 
 ;; (setq auto-insert-alist
@@ -516,6 +521,13 @@
     (require 'google-c-style)
     (add-hook 'c-mode-common-hook 'google-set-c-style)
     (add-hook 'c-mode-common-hook 'google-make-newline-indent)))
+
+;; Customize compile command to run a.cpp
+(add-hook 'c++-mode-hook
+  (lambda ()
+    (if (not (string-match "cpp" compile-command))
+    (set (make-local-variable 'compile-command)
+         "g++ -std=c++11 -o a.out a.cpp"))))
 
 ;; NOTICE: intellicense does not work and too slow...
 ;; ;; semantic-mode

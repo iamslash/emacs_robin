@@ -39,7 +39,6 @@
 
 (setq js2-highlight-level 3)
 
-
 ;; ;Using paredit with javascript
 ;; (define-key js-mode-map "{" 'paredit-open-curly)
 ;; (define-key js-mode-map "}" 'paredit-close-curly-and-newline)
