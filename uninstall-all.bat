@@ -1,8 +1,8 @@
 @ECHO OFF
 
 REM default variables
-SET EMACS_ROBIN_HOME=c:\iamslash\.emacs_robin
-SET EMACS_FILE=c:\iamslash\.emacs
+SET EMACS_ROBIN_HOME=%HOME%\.emacs_robin
+SET EMACS_FILE=%%HOME\.emacs
 
 REM uninstall emacs_robin
 rmdir /s /q %EMACS_ROBIN_HOME%
