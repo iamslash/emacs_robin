@@ -266,9 +266,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'python-mode-hook
   (lambda ()
-    (setq indent-tabs-mode t)
-    (setq tab-width 2)
-    (setq python-indent-offset 2)
+    (setq indent-tabs-mode f)
+    (setq tab-width 4)
+    (setq python-indent-offset 4)
     ;; Customize compile command to run a.py
     (if (not (string-match "py" compile-command))
         (set (make-local-variable 'compile-command)
