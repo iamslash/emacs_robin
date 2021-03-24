@@ -259,7 +259,7 @@
     ;; Customize compile command to run a.py
     (if (not (string-match "java" compile-command))
         (set (make-local-variable 'compile-command)
-             "javac Solution.java"))))
+             "javac MainApp.java"))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; python-mode
