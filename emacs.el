@@ -225,13 +225,13 @@
 (setq package-archives '(("ELPA"      . "http://tromey.com/elpa/")
                         ("gnu"       . "http://elpa.gnu.org/packages/")
                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                        ("melpa"     . "http://melpa.milkbox.net/packages/")))
+                        ("melpa"     . "https://melpa.org/packages/")))
 (defvar prelude-packages
   '(csharp-mode solarized-theme auto-complete magit js3-mode
                 nyan-mode iedit yasnippet flymake-google-cpplint
                 flymake-cursor google-c-style php-mode go-mode
                 go-autocomplete markdown-mode ggtags elm-mode
-                clojure-mode cider markdown-toc)
+                clojure-mode cider markdown-toc kotlin-mode)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
