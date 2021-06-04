@@ -250,13 +250,23 @@
       (package-install p))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; kotlin-mode
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-hook 'kotlin-mode-hook
+  (lambda ()
+    ;; Customize compile command to run MainApp.kt
+    (if (not (string-match "kt" compile-command))
+        (set (make-local-variable 'compile-command)
+             "kotlinc MainApp.kt"))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; java-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'java-mode-hook
   (lambda ()
     (setq indent-tabs-mode t)
     (setq tab-width 2)
-    ;; Customize compile command to run a.py
+    ;; Customize compile command to run MainApp.java
     (if (not (string-match "java" compile-command))
         (set (make-local-variable 'compile-command)
              "javac MainApp.java"))))
