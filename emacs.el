@@ -257,7 +257,7 @@
     ;; Customize compile command to run MainApp.kt
     (if (not (string-match "kt" compile-command))
         (set (make-local-variable 'compile-command)
-             "kotlinc MainApp.kt"))))
+             "kotlinc MainApp.kt -include-runtime -d MainApp.jar"))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; java-mode
