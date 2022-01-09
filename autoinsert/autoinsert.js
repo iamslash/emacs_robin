@@ -1,3 +1,3 @@
-// Copyright (C) 2021 by iamslash
+// Copyright (C) 2022 by iamslash
 
 console.log("Hello World")

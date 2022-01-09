@@ -263,7 +263,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'java-mode-hook
   (lambda ()
-    (setq indent-tabs-mode t)
+    (setq indent-tabs-mode f)
+    (setq c-basic-offset 4)
     (setq tab-width 2)
     ;; Customize compile command to run MainApp.java
     (if (not (string-match "java" compile-command))
