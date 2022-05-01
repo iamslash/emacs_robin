@@ -35,7 +35,7 @@
 (if (functionp 'scroll-bar-mode) (scroll-bar-mode 0))
 (auto-compression-mode 1)               ; 
 (setq-default indent-tabs-mode nil)     ;
-(setq default-tab-width 2)
+(setq default-tab-width 4)
 ;; https://www.emacswiki.org/emacs/IncrementalSearch
 (define-key isearch-mode-map (kbd "C-y") 'isearch-yank-kill)
 ;;;; windows key
@@ -230,7 +230,8 @@
                 nyan-mode iedit yasnippet 
                 flymake-cursor google-c-style php-mode go-mode
                 go-autocomplete markdown-mode ggtags elm-mode
-                clojure-mode cider markdown-toc kotlin-mode)
+                clojure-mode cider markdown-toc kotlin-mode
+                swift-mode)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
@@ -323,8 +324,8 @@
   (autoload 'go-mode "go-mode" nil t)
   (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
   (defun my-go-mode-hook ()
-    (setq tab-width 2)
-    (setq standard-indent 2)
+    (setq tab-width 4)
+    (setq standard-indent 4)
     (setq indent-tabs-mode nil)
     ;; (setq default-tab-width 2)
     ;; Use goimports instead of go-fmt
