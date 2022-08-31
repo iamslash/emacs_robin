@@ -231,7 +231,7 @@
                 flymake-cursor google-c-style php-mode go-mode
                 go-autocomplete markdown-mode ggtags elm-mode
                 clojure-mode cider markdown-toc kotlin-mode
-                swift-mode)
+                swift-mode typescript-mode)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
@@ -248,6 +248,17 @@
   (dolist (p prelude-packages)
     (when (not (package-installed-p p))
       (package-install p))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; typescript-mode
+;;; https://github.com/emacs-typescript/typescript.el 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-hook 'typescript-mode-hook
+  (lambda ()
+    ;; Customize compile command to run MainApp.kt
+    (if (not (string-match "ts" compile-command))
+        (set (make-local-variable 'compile-command)
+             "ts-node a.ts"))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; kotlin-mode
@@ -633,6 +644,15 @@
                           ("\\<\\(TODO\\):" 1 c-nonbreakable-space-face prepend)
                           ("\\<\\(BUG\\):" 1 c-nonbreakable-space-face prepend)
                           ("\\<\\(NOTE\\):" 1 c-nonbreakable-space-face prepend)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; ansi-color
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'ansi-color)
+(defun colorize-compilation-buffer ()
+  (let ((inhibit-read-only t))
+    (ansi-color-apply-on-region (point-min) (point-max))))
+(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; other files
