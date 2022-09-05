@@ -472,6 +472,7 @@
 (define-auto-insert "\\.js\\'" "autoinsert.js")
 (define-auto-insert "\\README.md\\'" "README.md")
 (define-auto-insert "\\.kt\\'" "autoinsert.kt")
+(define-auto-insert "\\.ts\\'" "autoinsert.ts")
 
 ;; (setq auto-insert-alist
 ;;       (append `(
