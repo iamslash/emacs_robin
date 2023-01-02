@@ -666,3 +666,8 @@
 (when (eq system-type 'windows-nt)
   (load "~/.emacs_robin/emacs-win"))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; zscaler
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; don't work why???
+;; (add-to-list 'gnutls-trustfiles "~/.zscaler/zscaler.pem")

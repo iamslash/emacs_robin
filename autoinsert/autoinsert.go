@@ -1,4 +1,4 @@
-/* Copyright (C) 2022 by iamslash */
+/* Copyright (C) 2023 by iamslash */
 
 package main
 
