@@ -271,6 +271,16 @@
              "kotlinc MainApp.kt -include-runtime -d MainApp.jar"))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; swift-mode
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-hook 'swift-mode-hook
+  (lambda ()
+    ;; Customize compile command to run MainApp.kt
+    (if (not (string-match "swift" compile-command))
+        (set (make-local-variable 'compile-command)
+             "swiftc -o a.out a.swift"))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; java-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'java-mode-hook
@@ -309,6 +319,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (when (locate-library "cider")
   (add-hook 'cider-mode-hook #'clj-refactor-mode))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; go-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -473,6 +484,7 @@
 (define-auto-insert "\\README.md\\'" "README.md")
 (define-auto-insert "\\.kt\\'" "autoinsert.kt")
 (define-auto-insert "\\.ts\\'" "autoinsert.ts")
+(define-auto-insert "\\.swift\\'" "autoinsert.swift")
 
 ;; (setq auto-insert-alist
 ;;       (append `(
