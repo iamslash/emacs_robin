@@ -1,5 +1,7 @@
 # Problem
 
+[]()
+
 # Idea
 
 # Implementation
