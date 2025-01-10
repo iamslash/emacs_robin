@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2024 by iamslash 
+# Copyright (C) 2025 by iamslash 
 
 def main():
     pass
