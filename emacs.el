@@ -285,7 +285,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'java-mode-hook
   (lambda ()
-    (setq indent-tabs-mode f)
+    (setq indent-tabs-mode nil)
     (setq c-basic-offset 4)
     (setq tab-width 2)
     ;; Customize compile command to run MainApp.java
@@ -298,7 +298,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'python-mode-hook
   (lambda ()
-    (setq indent-tabs-mode f)
+    (setq indent-tabs-mode nil)
     (setq tab-width 4)
     (setq python-indent-offset 4)
     ;; Customize compile command to run a.py
@@ -383,7 +383,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; solarized-light 
 (when window-system
-  (load-theme 'solarized-light t))
+  (load-theme 'doom-one t))
+;  (load-theme 'solarized-light t))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; nyan-mode
